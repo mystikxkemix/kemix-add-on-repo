@@ -30,43 +30,50 @@
 			</control>
 			<!-- Info -->
 			<control type="group">
-				<top>649</top>
-				<width>405</width>
-				<height>152</height>
+				<left>-60</left>
+				<top>460</top>
 				<control type="image">
-					<height>28</height>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.VideoResolution,flagging/video/,.png]</texture>
 				</control>
 				<control type="image">
-					<left>135</left>
-					<height>28</height>
+					<left>102</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.AudioCodec,flagging/audio/,.png]</texture>
 				</control>
-				<control type="image">
-					<left>270</left>
-					<height>28</height>
-					<aspectratio>keep</aspectratio>
+				<!--<control type="image">
+					<left>132</left>
+					<height>48</height>
+					<width>64</width>
 					<texture>$VAR[typehackflagging,flagging/video/,.png]</texture>
-				</control>
+				</control>-->
 				<control type="image">
-					<top>61</top>
-					<height>28</height>
+					<left>204</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
 				</control>
 				<control type="image">
-					<top>61</top>
-					<left>135</left>
-					<height>28</height>
+					<left>306</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
 				</control>
 				<control type="image">
-					<top>61</top>
-					<left>270</left>
-					<height>28</height>
+					<left>408</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$VAR[videocodec,flagging/video/,.png]</texture>
 				</control>
