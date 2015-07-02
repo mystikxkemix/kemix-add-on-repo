@@ -7,16 +7,18 @@
 		<datadir zip="true">https://raw.githubusercontent.com/mystikxkemix/kemix-addons/master/zip/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary>Kemix's add-ons</summary>
-		<description>All Kemix's add-ons</description>
-		<disclaimer></disclaimer>
+		<language>en</language>
+		<summary lang="en">Kemixs add-ons</summary>
+		<description lang="en">All Kemixs add-ons</description>
+		<disclaimer lang="en"></disclaimer>
 		<platform>all</platform>
+		<source>https://github.com/mystikxkemix/kemix-addons</source>
 	</extension>
 </addon>
 
 <addon
 	id="skin.kemixOSMC"
-	version="1.0.2"
+	version="1.0.3"
 	name="Kemix's OMSC"
 	provider-name="Kemix">
 	<requires>

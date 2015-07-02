@@ -2,11 +2,3 @@
 
 - Delete useless option in skin settings
 - Add New View (BestViewEver)
-
-1.0.1
-
-- Modif du menu principal
-
-1.0.0
-
-- Copie du thème OSMC
