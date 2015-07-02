@@ -1,3 +1,7 @@
+1.0.4
+
+- Correction bug Fanart BestViewEver view
+
 1.0.3
 
 - J'sais plus

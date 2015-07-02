@@ -8,7 +8,7 @@
 				<left>840</left>
 				<top>180</top>
 				<width>1053</width>
-				<aspectratio>keep</aspectratio>
+				<height>540</height>
 				<texture>$INFO[ListItem.Art(fanart)]</texture>
 				<visible>!SubString(ListItem.Icon,Default)</visible>
 				<animation effect="fade" start="0" end="100" time="350">Visible</animation>

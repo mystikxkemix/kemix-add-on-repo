@@ -18,7 +18,7 @@
 
 <addon
 	id="skin.kemixOSMC"
-	version="1.0.3"
+	version="1.0.4"
 	name="Kemix's OMSC"
 	provider-name="Kemix">
 	<requires>
