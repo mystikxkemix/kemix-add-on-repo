@@ -1,3 +1,8 @@
+1.0.5
+
+- BestViewEver usable in movies
+- Try to change infos pictures size
+
 1.0.4
 
 - Correction bug Fanart BestViewEver view

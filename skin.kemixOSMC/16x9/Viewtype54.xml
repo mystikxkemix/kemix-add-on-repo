@@ -84,7 +84,7 @@
 				<viewtype label="31067">list</viewtype>
 				<focusposition>4</focusposition>
 				<pagecontrol>70</pagecontrol>
-				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Movies)</visible>
 	
 				<itemlayout width="590" height="80">
 					<!--Name -->

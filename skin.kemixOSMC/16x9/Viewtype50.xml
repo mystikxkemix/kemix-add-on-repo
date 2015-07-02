@@ -34,40 +34,40 @@
 				<width>405</width>
 				<height>152</height>
 				<control type="image">
-					<width>130</width>
-					<height>56</height>
+					<height>28</height>
+					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.VideoResolution,flagging/video/,.png]</texture>
 				</control>
 				<control type="image">
 					<left>135</left>
-					<width>130</width>
-					<height>56</height>
+					<height>28</height>
+					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.AudioCodec,flagging/audio/,.png]</texture>
 				</control>
 				<control type="image">
 					<left>270</left>
-					<width>130</width>
-					<height>56</height>
+					<height>28</height>
+					<aspectratio>keep</aspectratio>
 					<texture>$VAR[typehackflagging,flagging/video/,.png]</texture>
 				</control>
 				<control type="image">
 					<top>61</top>
-					<width>130</width>
-					<height>56</height>
+					<height>28</height>
+					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
 				</control>
 				<control type="image">
 					<top>61</top>
 					<left>135</left>
-					<width>130</width>
-					<height>56</height>
+					<height>28</height>
+					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
 				</control>
 				<control type="image">
 					<top>61</top>
 					<left>270</left>
-					<width>130</width>
-					<height>56</height>
+					<height>28</height>
+					<aspectratio>keep</aspectratio>
 					<texture>$VAR[videocodec,flagging/video/,.png]</texture>
 				</control>
 			</control>

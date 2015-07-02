@@ -1,3 +1,16 @@
+1.0.5
+
+- BestViewEver usable in movies
+- Try to change infos pictures size
+
+1.0.4
+
+- Correction bug Fanart BestViewEver view
+
+1.0.3
+
+- J'sais plus
+
 1.0.2
 
 - Delete useless option in skin settings
