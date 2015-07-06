@@ -1,3 +1,9 @@
+1.0.7
+
+- Fix BestViewEver Movies view
+- Fix BestViewEver TVshows view
+- Add BestViewEver Episodes view
+
 1.0.6
 
 - Correction Codecs pictures bug in List

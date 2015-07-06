@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
-    <include name="Viewtype54">
+	<!--BestViewEver Movie-->
+    <include name="Viewtype55">
 		<control type="group">
-			<visible>Control.IsVisible(54)</visible>
+			<visible>Control.IsVisible(55)</visible>
 			<!-- Fanart -->
 			<control type="image">
 				<left>840</left>
@@ -64,34 +65,34 @@
 			
 			<!-- List -->
 			<control type="image">
-				<left>210</left>
+				<left>120</left>
 				<top>180</top>
-				<width>560</width>
+				<width>650</width>
 				<height>820</height>
 				<texture>common/blackList.png</texture>
 				<bordertexture border="5">common/whiteList_border.png</bordertexture>
 			</control>
 			
-			<control type="fixedlist" id="54">
+			<control type="fixedlist" id="55">
 				<left>40</left>
 				<top>190</top>
 				<width>710</width>
 				<height>800</height>
-				<onup>54</onup>
-				<ondown>54</ondown>
-				<onright>74</onright>
+				<onup>55</onup>
+				<ondown>55</ondown>
+				<onright>75</onright>
 				<aligny>center</aligny>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
 				<viewtype label="31067">list</viewtype>
 				<focusposition>4</focusposition>
-				<pagecontrol>74</pagecontrol>
-				<visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+				<pagecontrol>75</pagecontrol>
+				<visible>Container.Content(Movies)</visible>
 	
-				<itemlayout width="510" height="80">
+				<itemlayout width="630" height="80">
 					<!--Name -->
 					<control type="label">
-						<left>190</left>
-						<width>510</width>
+						<left>130</left>
+						<width>630</width>
 						<height>80</height>
 						<font>XSmall</font>
 						<textcolor>ColorNF</textcolor>
@@ -100,52 +101,20 @@
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
-					<!-- Episode Sawn -->
-					<control type="label">
-						<left>10</left>
-						<width>50</width>
-						<height>80</height>
-						<font>XSmall</font>
-						<textcolor>ColorNF</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(WatchedEpisodes)]</label>
-						<visible>!SubString(ListItem.Label,..)</visible>
-					</control>
-					<!-- Separator -->
-					<control type="label">
-						<left>60</left>
+					<!-- Watched status -->
+					<control type="image">
+						<top>30</top>
+						<left>20</left>
 						<width>20</width>
-						<height>80</height>
-						<font>XSmall</font>
-						<textcolor>ColorNF</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<label>/</label>
-						<visible>!SubString(ListItem.Label,..)</visible>
+						<height>20</height>
+						<texture>$VAR[StatusOverlay]</texture>
 					</control>
-					<!-- Total episodes -->
-					<control type="label">
-						<left>90</left>
-						<width>50</width>
-						<height>80</height>
-						<font>XSmall</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<textcolor>ColorNF</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
-						<visible>!SubString(ListItem.Label,..)</visible>
-					</control>
-				</itemlayout>
-				
-				<focusedlayout width="510" height="80">
+				</itemlayout>				
+				<focusedlayout width="630" height="80">
 					<!--Name -->
 					<control type="label">
-						<left>190</left>
-						<width>510</width>
+						<left>110</left>
+						<width>630</width>
 						<height>80</height>
 						<font>Small</font>
 						<textcolor>ColorFO</textcolor>
@@ -154,44 +123,13 @@
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
-					<!-- Episode Sawn -->
-					<control type="label">
-						<left>10</left>
-						<width>50</width>
-						<height>80</height>
-						<font>Small</font>
-						<textcolor>ColorFO</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(WatchedEpisodes)]</label>
-						<visible>!SubString(ListItem.Label,..)</visible>
-					</control>
-					<!-- Separator -->
-					<control type="label">
-						<left>60</left>
+					<!-- Watched status -->
+					<control type="image">
+						<top>30</top>
+						<left>20</left>
 						<width>20</width>
-						<height>80</height>
-						<font>Small</font>
-						<textcolor>ColorFO</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<label>/</label>
-						<visible>!SubString(ListItem.Label,..)</visible>
-					</control>
-					<!-- Total episodes -->
-					<control type="label">
-						<left>90</left>
-						<width>50</width>
-						<height>80</height>
-						<font>Small</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<textcolor>ColorFO</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
-						<visible>!SubString(ListItem.Label,..)</visible>
+						<height>20</height>
+						<texture>$VAR[StatusOverlay]</texture>
 					</control>
 				</focusedlayout>
 			</control>
@@ -200,14 +138,14 @@
 			<control type="image">
 				<left>40</left>
 				<top>180</top>
-				<width>150</width>
+				<width>60</width>
 				<height>820</height>
 				<texture>common/blackList.png</texture>
 				<bordertexture border="5">common/whiteList_border.png</bordertexture>
 			</control>
 			
 			<!-- Scrollbar -->
-			<control type="scrollbar" id="74">
+			<control type="scrollbar" id="75">
 				<left>800</left>
 				<top>180</top>
 				<width>25</width>
@@ -215,11 +153,9 @@
 				<texturesliderbackground border="10,14,10,14">common/ScrollbarVertical_background.png</texturesliderbackground>
 				<texturesliderbar border="10,14,10,14">common/ScrollbarVertical.png</texturesliderbar>
 				<texturesliderbarfocus border="10,14,10,14">common/ScrollbarVertical_focus.png</texturesliderbarfocus>
-				<onleft>54</onleft>
+				<onleft>55</onleft>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
-				<textureslidernib>-</textureslidernib>
-				<textureslidernibfocus>-</textureslidernibfocus>
 			</control>		
 		</control>
 	</include>

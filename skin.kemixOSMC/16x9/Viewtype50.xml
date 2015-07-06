@@ -28,7 +28,57 @@
 				<aspectratio>keep</aspectratio>
 				<visible>!SubString(ListItem.Icon,Default)</visible>
 			</control>
-			<!-- Info -->
+			<!-- Info movie -->
+			<control type="group">
+                                <left>-60</left>
+                                <top>610</top>
+                                <control type="image">
+                                        <height>48</height>
+                                        <width>100</width>
+                                        <align>center</align>
+                                        <aspectratio>keep</aspectratio>
+                                        <texture>$INFO[ListItem.VideoResolution,flagging/video/,.png]</texture>
+                                        <visible>Container.content(movies)</visible>
+                                </control>
+                                <control type="image">
+                                        <left>102</left>
+                                        <height>48</height>
+                                        <width>100</width>
+                                        <align>center</align>
+                                        <aspectratio>keep</aspectratio>
+                                        <texture>$INFO[ListItem.AudioCodec,flagging/audio/,.png]</texture>
+                                        <visible>Container.content(movies)</visible>
+                                </control>
+				<control type="image">
+                                        <left>204</left>
+                                        <height>48</height>
+                                        <width>100</width>
+                                        <align>center</align>
+                                        <aspectratio>keep</aspectratio>
+                                        <texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
+                                        <visible>Container.content(movies)</visible>
+                                </control>
+                                <control type="image">
+                                        <left>306</left>
+                                        <height>48</height>
+                                        <width>100</width>
+                                        <align>center</align>
+                                        <aspectratio>keep</aspectratio>
+                                        <texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
+                                        <visible>Container.content(movies)</visible>
+                                </control>
+                                <control type="image">
+                                        <left>408</left>
+                                        <height>48</height>
+                                        <width>100</width>
+                                        <align>center</align>
+                                        <aspectratio>keep</aspectratio>
+                                        <texture>$VAR[videocodec,flagging/video/,.png]</texture>
+                                        <visible>Container.content(movies)</visible>
+                                </control>
+                        </control>
+
+			<!-- Info Episode -->
 			<control type="group">
 				<left>-60</left>
 				<top>460</top>
@@ -38,6 +88,7 @@
 					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.VideoResolution,flagging/video/,.png]</texture>
+					<visible>Container.content(episodes)</visible>
 				</control>
 				<control type="image">
 					<left>102</left>
@@ -46,13 +97,8 @@
 					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.AudioCodec,flagging/audio/,.png]</texture>
+					<visible>Container.content(episodes)</visible>
 				</control>
-				<!--<control type="image">
-					<left>132</left>
-					<height>48</height>
-					<width>64</width>
-					<texture>$VAR[typehackflagging,flagging/video/,.png]</texture>
-				</control>-->
 				<control type="image">
 					<left>204</left>
 					<height>48</height>
@@ -60,6 +106,7 @@
 					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
+					<visible>Container.content(episodes)</visible>
 				</control>
 				<control type="image">
 					<left>306</left>
@@ -68,6 +115,7 @@
 					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
+					<visible>Container.content(episodes)</visible>
 				</control>
 				<control type="image">
 					<left>408</left>
@@ -76,6 +124,7 @@
 					<align>center</align>
 					<aspectratio>keep</aspectratio>
 					<texture>$VAR[videocodec,flagging/video/,.png]</texture>
+					<visible>Container.content(episodes)</visible>
 				</control>
 			</control>
 			<!--control type="grouplist">
