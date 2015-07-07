@@ -40,7 +40,7 @@
 
 <addon
     id="skin.marcozephyr"
-    version="1.0.3"
+    version="1.0.4"
     name="Marco's Zephyr"
     provider-name="Marco">
     <requires>
