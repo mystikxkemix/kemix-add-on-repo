@@ -1,3 +1,6 @@
+1.0.2
+- Fix bug icon repo
+
 1.0.1
 - Upload Icon repo
 
