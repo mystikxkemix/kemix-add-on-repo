@@ -36,4 +36,4 @@
 
 1.0.0
 
-- Copie du thème OSMC
+- Copie du theme OSMC
