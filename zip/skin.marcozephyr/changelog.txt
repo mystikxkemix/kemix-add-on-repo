@@ -1,6 +1,0 @@
-1.0.1
--Change awful pink
-
-1.0.0
-
-- Creation of the theme

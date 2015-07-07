@@ -1,4 +1,0 @@
-1.0.2
-
-- Delete useless option in skin settings
-- Add New View (BestViewEver)

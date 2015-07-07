@@ -1,4 +1,0 @@
-1.0.5
-
-- BestViewEver usable in movies
-- Try to change infos pictures size
