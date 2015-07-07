@@ -6,9 +6,9 @@
     <color name="Blue">FF0000FF</color>
     <color name="Green">FF00FF00</color>
     
-    <color name="Highlight">ff0385b5</color>
-    <color name="Highlight2">FF0385b5</color>
-    <color name="Selected">FFededed</color>
+    <color name="Highlight">ffD696969</color>
+    <color name="Highlight2">FFD696969</color>
+    <color name="Selected">FF333333</color>
     <color name="Dark1">ff333333</color>
     <color name="Dark2">b3333333</color>
     <color name="Dark3">4d333333</color>
