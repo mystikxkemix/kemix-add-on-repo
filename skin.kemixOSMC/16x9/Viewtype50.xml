@@ -1,3 +1,4 @@
+<!-- List view -->
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="Viewtype50">
@@ -10,14 +11,14 @@
 				<width>405</width>
 				<height>600</height>
 				<texture>$INFO[ListItem.Icon]</texture>
-				<aspectratio aligny="bottom">keep</aspectratio>
+				<aspectratio aligny="bottom">scale</aspectratio>
 				<visible>SubString(ListItem.Icon,Default)</visible>
 			</control>
 			<control type="image">
 				<width>405</width>
 				<height>600</height>
 				<texture colordiffuse="00ffffff">$INFO[ListItem.Icon]</texture>
-				<aspectratio>keep</aspectratio>
+				<aspectratio>scale</aspectratio>
 				<bordertexture>common/black.png</bordertexture>
 				<visible>!SubString(ListItem.Icon,Default)</visible>
 			</control>
@@ -25,7 +26,7 @@
 				<width>405</width>
 				<height>600</height>
 				<texture>$INFO[ListItem.Icon]</texture>
-				<aspectratio>keep</aspectratio>
+				<aspectratio>scale</aspectratio>
 				<visible>!SubString(ListItem.Icon,Default)</visible>
 			</control>
 			<!-- Info movie -->
