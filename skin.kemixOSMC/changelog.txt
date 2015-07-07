@@ -1,3 +1,7 @@
+1.0.9
+
+- undo version 1.0.8
+
 1.0.8
 
 - cover test
@@ -36,4 +40,4 @@
 
 1.0.0
 
-- Copie du thème OSMC
+- Copie du theme OSMC
