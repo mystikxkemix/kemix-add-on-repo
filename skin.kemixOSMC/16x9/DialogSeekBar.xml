@@ -13,50 +13,28 @@
 		<!-- Info -->
 		<control type="group">
 			<left>150</left>
-			<top>75</top>
+			<top>20</top>
 			<width>1620</width>
-			<height>234</height>
+			<height>68</height>
 
 			<!-- Background -->
 			<control type="image">
 				<width>1620</width>
-				<height>234</height>
+				<height>68</height>
 				<texture border="1">osd/OSDBack.png</texture>
 			</control>
 
 			<!-- Title -->
 			<control type="label">
 				<left>20</left>
-				<top>14</top>
-				<width>1280</width>
+				<top>10</top>
+				<width>1580</width>
 				<height>48</height>
-				<font>XLarge</font>
-				<textcolor>ColorFO</textcolor>
+				<font>Med</font>
+				<align>center</align>
+				<textcolor>ColorHeading</textcolor>
 				<label>$VAR[VideoPlayerTitle]</label>
 			</control>
-
-			<!-- Plot -->
-			<control type="textbox">
-				<left>20</left>
-				<top>87</top>
-				<width>1280</width>
-				<height>118</height>
-				<label>$VAR[VideoPlayerPlot]</label>
-				<font>XSmall</font>
-				<textcolor>ColorHeading</textcolor>
-				<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-			</control>
-
-			<!-- Icon -->
-			<control type="image">
-				<right>20</right>
-				<top>20</top>
-				<width>234</width>
-				<height>194</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[VideoPlayerIcon]</texture>
-			</control>
-
 		</control>
 
 		<!-- Player forwarding/rewinding -->

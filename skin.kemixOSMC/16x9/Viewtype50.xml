@@ -8,25 +8,25 @@
 			<visible>Control.IsVisible(50)</visible>
 			<!-- Image -->
 			<control type="image">
-				<width>405</width>
+				<width>403</width>
 				<height>600</height>
 				<texture>$INFO[ListItem.Icon]</texture>
-				<aspectratio aligny="bottom">scale</aspectratio>
+				<aspectratio aligny="bottom">keep</aspectratio>
 				<visible>SubString(ListItem.Icon,Default)</visible>
 			</control>
 			<control type="image">
-				<width>405</width>
+				<width>403</width>
 				<height>600</height>
 				<texture colordiffuse="00ffffff">$INFO[ListItem.Icon]</texture>
-				<aspectratio>scale</aspectratio>
+				<aspectratio>keep</aspectratio>
 				<bordertexture>common/black.png</bordertexture>
 				<visible>!SubString(ListItem.Icon,Default)</visible>
 			</control>
 			<control type="image">
-				<width>405</width>
+				<width>403</width>
 				<height>600</height>
 				<texture>$INFO[ListItem.Icon]</texture>
-				<aspectratio>scale</aspectratio>
+				<aspectratio>keep</aspectratio>
 				<visible>!SubString(ListItem.Icon,Default)</visible>
 			</control>
 			<!-- Info movie -->
@@ -128,7 +128,8 @@
 					<visible>Container.content(episodes)</visible>
 				</control>
 			</control>
-			<!--control type="grouplist">
+			<!--
+			<control type="grouplist">
 				<top>649</top>
 				<width>405</width>
 				<height>152</height>
@@ -161,7 +162,8 @@
 					<label>$VAR[InfoHeading3]</label>
 					<label2>$VAR[InfoDetails3]</label2>
 				</control>
-			</control-->
+			</control>
+			-->
 			<!-- Previous item -->
 			<control type="image">
 				<left>525</left>

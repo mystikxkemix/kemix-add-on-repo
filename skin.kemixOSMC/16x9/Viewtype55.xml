@@ -6,14 +6,59 @@
 			<visible>Control.IsVisible(55)</visible>
 			<!-- Fanart -->
 			<control type="image">
-				<left>840</left>
+				<left>885</left>
 				<top>180</top>
-				<width>1053</width>
-				<height>540</height>
+				<width>960</width>
+				<height>490</height>
 				<texture>$INFO[ListItem.Art(fanart)]</texture>
 				<visible>!SubString(ListItem.Icon,Default)</visible>
 				<animation effect="fade" start="0" end="100" time="350">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="350">Hidden</animation>
+			</control>
+
+			<!--Codecs-->
+			<control type="group">
+				<left>1150</left>
+				<top>690</top>
+				<control type="image">
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.VideoResolution,flagging/video/,.png]</texture>
+				</control>
+				<control type="image">
+					<left>102</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.AudioCodec,flagging/audio/,.png]</texture>
+				</control>
+				<control type="image">
+					<left>204</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
+				</control>
+				<control type="image">
+					<left>306</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
+				</control>
+				<control type="image">
+					<left>408</left>
+					<height>48</height>
+					<width>100</width>
+					<align>center</align>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[videocodec,flagging/video/,.png]</texture>
+				</control>
 			</control>
 			
 			<!-- Plot -->
