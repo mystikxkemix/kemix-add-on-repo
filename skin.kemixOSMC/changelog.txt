@@ -1,6 +1,7 @@
 1.0.11
 - Add TV show - next aired support
 - Add Grey theme color
+- Add different font size
 
 1.0.10
 - Add a new Background color
