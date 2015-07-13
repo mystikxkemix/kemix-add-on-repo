@@ -25,8 +25,8 @@
 			<height>68</height>
 			<align>center</align>
 			<font>Med</font>
-			<texturefocus>dialogs/DialogBackground.png</texturefocus>
-			<texturenofocus>dialogs/DialogBackground.png</texturenofocus>
+			<texturefocus colordiffuse="DialogBackgroundColor">common/white.png</texturefocus>
+			<texturenofocus colordiffuse="DialogBackgroundColor">common/white.png</texturenofocus>
 		</control>
 	</controls>
 </window>
