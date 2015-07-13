@@ -129,7 +129,7 @@
 					<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(6)">Conditional</animation>
 				</control>
 				<control type="label">
-					<left>140</left>
+					<left>160</left>
 					<top>10</top>
 					<width>1030</width>
 					<height>36</height>
