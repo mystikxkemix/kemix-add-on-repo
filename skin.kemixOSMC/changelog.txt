@@ -1,12 +1,14 @@
-1.0.11
-- Add TV show - next aired support
+1.1.0
+- Add Skin for TV Show - Next Aired
+- Fix BestViewEver episode display
 - Add Grey theme color
 - Add different font size
 
 1.0.10
 - Add a new Background color
 - Change the Video Player OSD
-- add display movies' codecs on BestViewEver
+- Add display movies' codecs on BestViewEver
+- Fix display on List view
 
 1.0.9
 - undo version 1.0.8

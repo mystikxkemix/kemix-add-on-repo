@@ -135,7 +135,6 @@
 						<height>80</height>
 						<font>XSmall</font>
 						<textcolor>ColorNF</textcolor>
-						<selectedcolor>selected</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -157,7 +156,6 @@
 						<height>80</height>
 						<font>Small</font>
 						<textcolor>ColorFO</textcolor>
-						<selectedcolor>selected</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>

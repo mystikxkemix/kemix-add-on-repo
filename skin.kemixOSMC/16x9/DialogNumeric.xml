@@ -11,7 +11,7 @@
 			<top>220</top>
 			<width>1920</width>
 			<height>860</height>
-			<texture colordiffuse="DialogBackgroundColor">common/white.png</texture>
+			<texture>dialogs/DialogBackground.png</texture>
 		</control>
 
 		<!-- Heading -->

@@ -17,7 +17,7 @@
 				<centerleft>50%</centerleft>
 				<width>100%</width>
 				<height>100%</height>
-				<texture colordiffuse="DialogBackgroundColor">common/white.png</texture>
+				<texture>dialogs/DialogBackground.png</texture>
 			</control>
 			<!-- Heading -->
 			<control type="label" id="1">

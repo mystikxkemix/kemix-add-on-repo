@@ -20,7 +20,7 @@
 				<top>0</top>
 				<width>220</width>
 				<height>180</height>
-				<texture colordiffuse="DialogBackgroundColor">common/white.png</texture>
+				<texture>dialogs/DialogBackground.png</texture>
 			</control>
 
 			<!-- Heading -->
