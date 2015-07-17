@@ -735,13 +735,20 @@
 					<width>250</width>
 					<height>40</height>
 					<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
+					<visible>!StringCompare(Window(home).Property(NextAired.1.Date),Window(home).Property(NextAired.TodayDate))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>40</height>
+					<texture>TVShowNextAired/TVGuideGridHighlightToday.png</texture>
+					<visible>StringCompare(Window(home).Property(NextAired.1.Date),Window(home).Property(NextAired.TodayDate))</visible>
 				</control>
 				
 				<!-- Day display -->
 				<control type="label">
 					<width>250</width>
 					<height>40</height>
-					<label>$INFO[Window(Home).Property(NextAired.200.Weekday)]</label>
+					<label>$INFO[Window(Home).Property(NextAired.200.WeekDay)]</label>
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font13_title</font>
@@ -774,22 +781,13 @@
 					<itemlayout height="65" width="250">
 
 						<!-- 1st or 2nd Week --> 
-						<!--
-						<control type="image">
+						<!--<control type="image">
 							<description>Bg</description>
 							<width>250</width>
 							<height>100</height>
-							<texture background="true">TVGuide-CalDay.png</texture>
-							<visible>!ListItem.Property(SecondWeek)</visible>
-						</control>
-						<control type="image">
-							<description>Bg</description>
-							<width>250</width>
-							<height>100</height>
-							<texture background="true">TVGuide-CalDay-Week2.png</texture>
+							<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
 							<visible>ListItem.Property(SecondWeek)</visible>
-						</control>
-						-->
+						</control>-->
 						
 						<!-- Display Poster -->
 						<control type="group">
@@ -908,6 +906,13 @@
 					<width>250</width>
 					<height>40</height>
 					<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
+					<visible>!StringCompare(Window(home).Property(NextAired.2.Date),Window(home).Property(NextAired.TodayDate))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>40</height>
+					<texture>TVShowNextAired/TVGuideGridHighlightToday.png</texture>
+					<visible>StringCompare(Window(home).Property(NextAired.2.Date),Window(home).Property(NextAired.TodayDate))</visible>
 				</control>
 				
 				<!-- Display Day -->
@@ -1079,6 +1084,13 @@
 					<width>250</width>
 					<height>40</height>
 					<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
+					<visible>!StringCompare(Window(home).Property(NextAired.3.Date),Window(home).Property(NextAired.TodayDate))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>40</height>
+					<texture>TVShowNextAired/TVGuideGridHighlightToday.png</texture>
+					<visible>StringCompare(Window(home).Property(NextAired.3.Date),Window(home).Property(NextAired.TodayDate))</visible>
 				</control>
 				
 				<!-- Display Day -->
@@ -1249,6 +1261,13 @@
 					<width>250</width>
 					<height>40</height>
 					<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
+					<visible>!StringCompare(Window(home).Property(NextAired.4.Date),Window(home).Property(NextAired.TodayDate))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>40</height>
+					<texture>TVShowNextAired/TVGuideGridHighlightToday.png</texture>
+					<visible>StringCompare(Window(home).Property(NextAired.4.Date),Window(home).Property(NextAired.TodayDate))</visible>
 				</control>
 				
 				<!-- Display Day -->
@@ -1419,6 +1438,13 @@
 					<width>250</width>
 					<height>40</height>
 					<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
+					<visible>!StringCompare(Window(home).Property(NextAired.5.Date),Window(home).Property(NextAired.TodayDate))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>40</height>
+					<texture>TVShowNextAired/TVGuideGridHighlightToday.png</texture>
+					<visible>StringCompare(Window(home).Property(NextAired.5.Date),Window(home).Property(NextAired.TodayDate))</visible>
 				</control>
 				
 				<!-- Display Day -->
@@ -1589,6 +1615,13 @@
 					<width>250</width>
 					<height>40</height>
 					<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
+					<visible>!StringCompare(Window(home).Property(NextAired.6.Date),Window(home).Property(NextAired.TodayDate))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>40</height>
+					<texture>TVShowNextAired/TVGuideGridHighlightToday.png</texture>
+					<visible>StringCompare(Window(home).Property(NextAired.6.Date),Window(home).Property(NextAired.TodayDate))</visible>
 				</control>
 				
 				<!-- Display Day -->
@@ -1759,7 +1792,13 @@
 					<width>250</width>
 					<height>40</height>
 					<texture>TVShowNextAired/TVGuideGridHighlight.png</texture>
-					<visible>!ListItem.Property(SecondWeek)</visible>
+					<visible>!StringCompare(Window(home).Property(NextAired.7.Date),Window(home).Property(NextAired.TodayDate))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>40</height>
+					<texture>TVShowNextAired/TVGuideGridHighlightToday.png</texture>
+					<visible>StringCompare(Window(home).Property(NextAired.7.Date),Window(home).Property(NextAired.TodayDate))</visible>
 				</control>
 				
 				<!-- Display Day -->
