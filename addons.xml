@@ -88,7 +88,7 @@
 
 <addon
   id="webinterface.kemix"
-  version="1.0.0"
+  version="1.0.1"
   name="Kemix's Web Interface Default"
   provider-name="Team-Kodi">
   <requires>
