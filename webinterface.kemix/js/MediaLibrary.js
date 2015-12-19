@@ -62,6 +62,104 @@ MediaLibrary.prototype = {
       }
     });
   },
+  remoteControlOpen: function (event) {
+    this.resetPage();
+    $('#remoteControl').addClass('selected');
+    $('.contentContainer').hide();
+    var libraryContainer = $('#remoteContainer');
+    if (!libraryContainer || libraryContainer.length === 0) {
+      $('#spinner').show();
+      libraryContainer = $('<div>');
+      libraryContainer.attr('id', 'remoteContainer')
+        .addClass('contentContainer');
+      $('#content').append(libraryContainer);
+      var keys=[
+        {name:'up',width:'40px',height:'30px',top:'28px',left:'58px'},
+        {name:'down',width:'40px',height:'30px',top:'122px',left:'58px'},
+        {name:'left',width:'40px',height:'30px',top:'74px',left:'15px'},
+        {name:'right',width:'40px',height:'30px',top:'74px',left:'104px'},
+        {name:'ok',width:'40px',height:'30px',top:'74px',left:'58px'},
+        {name:'back',width:'40px',height:'30px',top:'13px',left:'161px'},
+        {name:'home',width:'40px',height:'30px',top:'154px',left:'8px'},
+        {name:'mute',width:'40px',height:'30px',top:'107px',left:'391px'},
+        {name:'power',width:'30px',height:'30px',top:'-3px',left:'13px'},
+        {name:'volumeup',width:'30px',height:'30px',top:'49px',left:'422px'},
+        {name:'volumedown',width:'30px',height:'30px',top:'49px',left:'367px'},
+        {name:'playpause',width:'32px',height:'23px',top:'62px',left:'260px'},
+        {name:'stop',width:'32px',height:'23px',top:'62px',left:'211px'},
+        {name:'next',width:'38px',height:'25px',top:'102px',left:'304px'},
+        {name:'previous',width:'38px',height:'25px',top:'101px',left:'160px'},
+        {name:'forward',width:'32px',height:'23px',top:'102px',left:'259px'},
+        {name:'rewind',width:'32px',height:'23px',top:'101px',left:'211px'},
+        {name:'cleanlib_a',width:'46px',height:'26px',top:'47px',left:'553px'},
+        {name:'updatelib_a',width:'46px',height:'26px',top:'47px',left:'492px'},
+        {name:'cleanlib_v',width:'46px',height:'26px',top:'111px',left:'553px'},
+        {name:'updatelib_v',width:'46px',height:'26px',top:'111px',left:'492px'}
+      ];
+      for (var akey in keys) {
+        var aremotekey=$('<p>').attr('id',keys[akey]['name']);
+        aremotekey.addClass('remote_key')
+          .css('height',keys[akey]['height'])
+          .css('width',keys[akey]['width'])
+          .css('top',keys[akey]['top'])
+          .css('left',keys[akey]['left'])
+          .bind('click',{key: keys[akey]['name']},jQuery.proxy(this.pressRemoteKey,this));
+          libraryContainer.append(aremotekey);
+      }
+    } else {
+      libraryContainer.show();
+      libraryContainer.trigger('scroll');
+    }
+
+    $('#spinner').hide();
+  },
+  shouldHandleEvent: function (event) {
+    var inRemoteControl = $('#remoteControl').hasClass('selected');
+    return (!event.ctrlKey && !event.altKey && inRemoteControl);
+  },
+  handleKeyPress: function (event) {
+    if (!this.shouldHandleEvent(event)) { return true; }
+
+    var keys = {
+      8: 'back',        // Back space
+      13: 'ok',         // Enter
+      27: 'home',       // Escape
+      32: 'playpause',  // Space bar
+      37: 'left',       // Left
+      38: 'up',         // Up
+      39: 'right',      // Right
+      40: 'down',       // Down
+      93: 'contextmenu',// "Right Click"
+      107: 'volumeup',  // + (num keypad)
+      109: 'volumedown',// - (num keypad)
+      187: 'volumeup',  // + (alnum keypad)
+      189: 'volumedown' // - (alnum keypad)
+    };
+    var which = event.which;
+    var key = keys[which];
+
+    event.data = {key: key};
+
+    if (!key) {
+      event.data.key = 'text';
+
+      // Letters
+      if (which >= 65 && which <= 90) {
+        var offset = event.shiftKey ? 0 : 32;
+        event.data.text = String.fromCharCode(which + offset);
+      }
+
+      // Digits
+      if (which >= 96 && which <= 105) {
+        event.data.text = (which-96)+"";
+      }
+    }
+
+    if (event.data.key) {
+      this.pressRemoteKey(event);
+      return false;
+    }
+  },
   handleContextMenu: function (event) {
     if (!this.shouldHandleEvent(event)) { return true; }
     if (
@@ -74,6 +172,65 @@ MediaLibrary.prototype = {
     var callObj = {'method': method};
     if (params) { callObj.params = params; }
     return xbmc.rpc.request(callObj);
+  },
+  pressRemoteKey: function (event) {
+    var player = -1,
+      keyPressed = event.data.key;
+    $('#spinner').show();
+
+    switch(keyPressed) {
+      case 'up': return this.rpcCall('Input.Up');
+      case 'down': return this.rpcCall('Input.Down');
+      case 'left': return this.rpcCall('Input.Left');
+      case 'right': return this.rpcCall('Input.Right');
+      case 'ok': return this.rpcCall('Input.Select');
+      case 'cleanlib_a': return this.rpcCall('AudioLibrary.Clean');
+      case 'updatelib_a': return this.rpcCall('AudioLibrary.Scan');
+      case 'cleanlib_v': return this.rpcCall('VideoLibrary.Clean');
+      case 'updatelib_v': return this.rpcCall('VideoLibrary.Scan');
+      case 'back': return this.rpcCall('Input.Back');
+      case 'home': return this.rpcCall('Input.Home');
+      case 'power': return this.rpcCall('System.Shutdown');
+      case 'contextmenu': return this.rpcCall('Input.ContextMenu');
+      case 'mute':
+        return this.rpcCall('Application.SetMute', {'mute': 'toggle'});
+      case 'volumeup':
+        return this.rpcCall('Application.SetVolume', {'volume': 'increment'});
+      case 'volumedown':
+        return this.rpcCall('Application.SetVolume', {'volume': 'decrement'});
+      case 'text':
+        return this.rpcCall('Input.SendText', {'text': event.data.text});
+    }
+
+    // TODO: Get active player
+    if ($('#videoDescription').is(':visible')) {
+      player = this.playlists["video"];
+    } else if ($('#audioDescription').is(':visible')) {
+      player = this.playlists["audio"];
+    }
+
+    if (player >= 0) {
+      switch(keyPressed) {
+        case 'playpause':
+          return this.rpcCall('Player.PlayPause', {'playerid': player});
+        case 'stop':
+          return this.rpcCall('Player.Stop', {'playerid': player});
+        case 'next':
+          return this.rpcCall('Player.GoTo', {'playerid': player, 'to': 'next'});
+        case 'previous':
+          return this.rpcCall('Player.GoTo',
+            {'playerid': player, 'to': 'previous'}
+          );
+        case 'forward':
+          return this.rpcCall('Player.SetSpeed',
+            {'playerid': player, 'speed': 'increment'}
+          );
+        case 'rewind':
+          return this.rpcCall('Player.SetSpeed',
+            {'playerid': player, 'speed': 'decrement'}
+          );
+      }
+    }
   },
   musicLibraryOpen: function (event) {
     this.resetPage();
@@ -116,6 +273,7 @@ MediaLibrary.prototype = {
             this.albumList = data.result.albums;
             $.each($(this.albumList), jQuery.proxy(function (i, item) {
               var floatableAlbum = this.generateThumb('album', item.thumbnail, item.title, item.artist);
+              floatableAlbum.bind('click', { album: item }, jQuery.proxy(this.displayAlbumDetails, this));
               libraryContainer.append(floatableAlbum);
             }, this));
             libraryContainer.append($('<div>').addClass('footerPadding'));
@@ -158,6 +316,7 @@ MediaLibrary.prototype = {
         break;
       case 'tvshow':
         className = 'floatableTVShowCover';
+	code = '<p class="album" title="' + title + '">' + showTitle + '</p>';
         break;
       case 'tvshowseason':
         className = 'floatableTVShowCoverSeason';
@@ -260,6 +419,7 @@ MediaLibrary.prototype = {
               }
               $('#albumDetails' + event.data.album.albumid + ' .resultSet').append(trackRow);
             }
+            trackRow = $('<tr>').addClass('trackRow').addClass('tr' + i % 2).bind('click', { album: event.data.album, itmnbr: i }, jQuery.proxy(this.playTrack,this));
             trackNumberTD = $('<td>').html(item.track);
 
             trackRow.append(trackNumberTD);
@@ -417,7 +577,6 @@ MediaLibrary.prototype = {
       'params': {
         'properties': [
           'title',
-          'thumbnail',
           'episode',
           'plot',
           'season'
@@ -427,12 +586,13 @@ MediaLibrary.prototype = {
       },
       'success': function (data) {
         var episodeListingsContainer = $('<div>').addClass('episodeListingsContainer');
-        var episodeTable= $('<table>').addClass('seasonView').html('<thead><tr class="headerRow"><th class="thumbHeader">N&deg;</th><th>Title</th><th class="thumbHeader">Thumb</th><th class="thumbHeader">Details</th></tr></thead><tbody class="resultSet"></tbody>');
+        var episodeTable= $('<table>').addClass('seasonView').html('<thead><tr class="headerRow"><th class="thumbHeader">N&deg;</th><th>Title</th><th class="thumbHeader">Details</th></tr></thead><tbody class="resultSet"></tbody>');
         $.each($(data.result.episodes), jQuery.proxy(function (i, item) {
           var episodeRow = $('<tr>').addClass('episodeRow').addClass('tr' + i % 2);
-          episodePictureImg.attr('src', this.getThumbnailPath(item.thumbnail));
+          var episodeNumber = $('<td>').addClass('episodeNumber').html(item.episode);
+          var episodeTitle = $('<td>').html(item.title);
           var episodeDetails = $('<td class="info">').html('').bind('click',{episode:item}, jQuery.proxy(this.displayEpisodeDetails, this)).css('cursor','pointer');
-          episodeRow.append(episodeNumber).append(episodeTitle).append(episodePicture).append(episodeDetails);
+          episodeRow.append(episodeNumber).append(episodeTitle).append(episodeDetails);
           episodeTable.append(episodeRow);
         }, this));
         episodeListingsContainer.append(episodeTable);
@@ -471,6 +631,20 @@ MediaLibrary.prototype = {
     $('#overlay').show();
     this.updatePlayButtonLocation();
   },
+  playTVShow: function (event) {
+    xbmc.rpc.request({
+      'context': this,
+      'method': 'Player.Open',
+      'params': {
+        'item': {
+          'episodeid': event.data.episode.episodeid
+        }
+      },
+      'success': function (data) {
+        this.hideOverlay();
+      }
+    });
+  },
   hideOverlay: function (event) {
     if (this.activeCover) {
       $(this.activeCover).remove();
@@ -499,10 +673,25 @@ MediaLibrary.prototype = {
       }
     }
   },
+  playMovie: function (event) {
+    xbmc.rpc.request({
+      'context': this,
+      'method': 'Player.Open',
+      'params': {
+        'item': {
+          'movieid': event.data.movie.movieid
+        }
+      },
+      'success': function (data) {
+        this.hideOverlay();
+      }
+    });
+  },
   displayMovieDetails: function (event) {
     var movieDetails = $('<div>').attr('id', 'movie-' + event.data.movie.movieid).addClass('moviePopoverContainer');
     movieDetails.append($('<img>').attr('src', 'images/close-button.png').addClass('closeButton').bind('click', jQuery.proxy(this.hideOverlay, this)));
     movieDetails.append($('<img>').attr('src', this.getThumbnailPath(event.data.movie.thumbnail)).addClass('movieCover'));
+    movieDetails.append($('<div>').addClass('playIcon').bind('click', {movie: event.data.movie}, jQuery.proxy(this.playMovie, this)));
     var movieTitle = $('<p>').addClass('movieTitle');
     var yearText = event.data.movie.year ? ' <span class="year">(' + event.data.movie.year + ')</span>' : '';
     movieTitle.html(event.data.movie.title + yearText);
@@ -523,6 +712,48 @@ MediaLibrary.prototype = {
     $('body').append(movieDetails);
     $('#overlay').show();
     this.updatePlayButtonLocation();
+  },
+  playTrack: function (event) {
+    xbmc.rpc.request({
+      'context': this,
+      'method': 'Playlist.Clear',
+      'params': {
+        'playlistid': this.playlists["audio"]
+      },
+      'success': function (data) {
+        xbmc.rpc.request({
+          'context': this,
+          'method': 'Playlist.Add',
+          'params': {
+            'playlistid': this.playlists["audio"],
+            'item': {
+              'albumid': event.data.album.albumid
+            }
+          },
+          'success': function (data) {
+            xbmc.rpc.request({
+              'method': 'Player.Open',
+              'params': {
+                'item': {
+                  'playlistid': this.playlists["audio"],
+                  'position': event.data.itmnbr
+                }
+              },
+              'success': function () {}
+            });
+          }
+        });
+      }
+    });
+  },
+  loadProfile: function (event) {
+    return xbmc.rpc.request({
+      'context': this,
+      'method': 'Profiles.LoadProfile',
+        'params': {
+          'profile': event.data.profile.label
+        }
+    });
   },
   movieLibraryOpen: function () {
     this.resetPage();
@@ -607,7 +838,6 @@ MediaLibrary.prototype = {
       toggleLandscape.attr('id', 'toggleLandscape')
         .css('cursor','pointer')
         .bind('click',{mode: 'landscape'},jQuery.proxy(this.togglePosterView,this));
-      toggle.append(toggleBanner).append(' | ').append(togglePoster).append(' | ').append(toggleLandscape);
       this.toggle=toggle;
       xbmc.rpc.request({
         'context': this,
@@ -626,7 +856,11 @@ MediaLibrary.prototype = {
             'studio',
             'mpaa',
             'premiered'
-          ]
+          ],
+	'sort': {
+            'method': 'sorttitle',
+            'ignorearticle': true
+          }
         },
         'success': function (data) {
           if (data && data.result && data.result.tvshows) {
@@ -653,18 +887,91 @@ MediaLibrary.prototype = {
           ) {
             var view=xbmc.core.getCookie('TVView');
             switch(view) {
-              case 'poster':
-                togglePoster.trigger('click');
+              case 'banner':
+                toggleBanner.trigger('click');
                 break;
               case 'landscape':
                 toggleLandscape.trigger('click');
                 break;
+              case 'poster':
+                togglePoster.trigger('click');
+		break;
+	      default:
+		tooglePoster.trigger('click');
+		break;
             }
           }
         }
       });
     } else {
       libraryContainer.prepend($(".toggle").detach()).show();
+      libraryContainer.trigger('scroll');
+    }
+  },
+  profilesOpen: function () {
+    this.resetPage();
+    $('#profiles').addClass('selected');
+    $('.contentContainer').hide();
+    var libraryContainer = $('#profilesContainer');
+    if (!libraryContainer || libraryContainer.length == 0) {
+      $('#spinner').show();
+      var currentProfile = "";
+      xbmc.rpc.request({
+          'method': 'Profiles.GetCurrentProfile',
+              'params': {
+                  'properties': [
+                      'lockmode'
+                   ]
+               },
+          'success': function (data) {
+              if (data)
+                  if (data.result)
+                      currentProfile = data.result.label;
+          }
+      });
+      xbmc.rpc.request({
+        'context': this,
+        'method': 'Profiles.GetProfiles',
+        'params': {
+          'limits': {
+            'start': 0
+          },
+          'properties': [
+            'thumbnail'
+          ],
+          'sort': {
+            'method': 'sorttitle',
+            'ignorearticle': true
+          }
+        },
+        'success': function (data) {
+          if (data && data.result && data.result.profiles) {
+            libraryContainer = $('<div>');
+            libraryContainer.attr('id', 'profilesContainer')
+                      .addClass('contentContainer');
+            $('#content').append(libraryContainer);
+          } else {
+            libraryContainer.html('');
+          }
+          $.each($(data.result.profiles), jQuery.proxy(function (i, item) {
+            var itemLabel = item.label;
+            if (currentProfile == itemLabel)
+            {
+              itemLabel = itemLabel + "*";
+            }
+            var floatableProfileThumb = this.generateThumb('profile', item.thumbnail, itemLabel);
+            floatableProfileThumb.bind('click', { profile: item }, jQuery.proxy(this.loadProfile, this));
+            libraryContainer.append(floatableProfileThumb);
+          }, this));
+          libraryContainer.append($('<div>').addClass('footerPadding'));
+          $('#spinner').hide();
+          libraryContainer.bind('scroll', { activeLibrary: libraryContainer }, jQuery.proxy(this.updateScrollEffects, this));
+          libraryContainer.trigger('scroll');
+          myScroll = new iScroll('profilesContainer');
+        }
+      });
+    } else {
+      libraryContainer.show();
       libraryContainer.trigger('scroll');
     }
   },
@@ -776,6 +1083,7 @@ MediaLibrary.prototype = {
           }
           $.each($(data.result.shares), jQuery.proxy(function (i, item) {
             var floatableShare = this.generateThumb('directory', item.thumbnail, item.label);
+            floatableShare.bind('click', { directory: item }, jQuery.proxy(this.showDirectory, this));
             libraryContainer.append(floatableShare);
           }, this));
           libraryContainer.append($('<div>').addClass('footerPadding'));
