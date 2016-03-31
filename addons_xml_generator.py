@@ -60,7 +60,7 @@ class Generator:
                 # create path
                 _path = os.path.join( addon, "addon.xml" )
                 # split lines for stripping
-                xml_lines = open( _path, "r" , encoding="UTF-8").read().splitlines()
+                xml_lines = open( _path, mode="r").read().splitlines()
                 # new addon
                 addon_xml = ""
                 # loop thru cleaning each line
@@ -69,7 +69,7 @@ class Generator:
                     if ( line.find( "<?xml" ) >= 0 ): continue
                     # add line
                     if sys.version < '3':
-                        addon_xml += unicode( line.rstrip() + "\n", "UTF-8" )
+                        addon_xml += unicode( line.rstrip() + "\n", "utf-8")
                     else:
                         addon_xml += line.rstrip() + "\n"
                 # we succeeded so add to our final addons.xml text

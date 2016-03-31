@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="repository.kemix" name="Kemix Add-on repository" version="1.0.5" provider-name="kemix">
+	<extension point="xbmc.addon.repository" name="kemix Repo">
+		<info compressed="false">https://raw.githubusercontent.com/mystikxkemix/kemix-addons/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/mystikxkemix/kemix-addons/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/mystikxkemix/kemix-addons/master/zip/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<language>en</language>
+		<summary lang="en">Kemixs add-ons</summary>
+		<description lang="en">All Kemixs add-ons</description>
+		<disclaimer lang="en"></disclaimer>
+		<platform>all</platform>
+		<source>https://github.com/mystikxkemix/kemix-addons</source>
+	</extension>
+</addon>
+
 <addon
 	id="skin.kemixOSMC"
 	version="1.1.3"
@@ -20,40 +36,6 @@
 		<summary lang="en">Look and feel of OSMC modified by Kemix</summary>
 		<disclaimer lang="en"/>
 		<description lang="en">Design: Simon Brunton[CR]ReDesign : Kemix[CR]Code: Hitcher</description>
-	</extension>
-</addon>
-
-<addon
-  id="webinterface.kemix"
-  version="1.0.1"
-  name="Kemix's Web Interface Default"
-  provider-name="Team-Kodi">
-  <requires>
-    <import addon="xbmc.json" version="6.0.0"/>
-  </requires>
-  <extension
-    point="xbmc.webinterface"/>
-  <extension point="xbmc.addon.metadata">
-	<summary lang="en">Kemix's Web Interface. (Kodi's default web interface by Kemix)</summary>
-	<disclaimer lang="en"/>
-	<description lang="en">Default web interface for Kodi; Designed for devices of all resolutions[CR]ReDesign : Kemix</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="repository.kemix" name="Kemix Add-on repository" version="1.0.5" provider-name="kemix">
-	<extension point="xbmc.addon.repository" name="kemix Repo">
-		<info compressed="false">https://raw.githubusercontent.com/mystikxkemix/kemix-addons/master/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/mystikxkemix/kemix-addons/master/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/mystikxkemix/kemix-addons/master/zip/</datadir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<language>en</language>
-		<summary lang="en">Kemixs add-ons</summary>
-		<description lang="en">All Kemixs add-ons</description>
-		<disclaimer lang="en"></disclaimer>
-		<platform>all</platform>
-		<source>https://github.com/mystikxkemix/kemix-addons</source>
 	</extension>
 </addon>
 
@@ -102,5 +84,23 @@
         <description lang="ru">Arctic: Zephyr это третий виток обложки Arctic, созданной jurialmunkey. Arctic старается быть простой, опрятной и минималистичной.</description>
         <platform>all</platform>
     </extension>
+</addon>
+
+<addon
+  id="webinterface.kemix"
+  version="1.0.2"
+  name="Kemix's Web Interface Default"
+  provider-name="Team-Kodi">
+  <requires>
+    <import addon="xbmc.json" version="6.0.0"/>
+  </requires>
+  <extension
+    point="xbmc.webinterface"/>
+  <extension point="xbmc.addon.metadata">
+	<summary lang="en">Kemix's Web Interface. (Kodi's default web interface by Kemix)</summary>
+	<disclaimer lang="en"/>
+	<description lang="en">Default web interface for Kodi; Designed for devices of all resolutions[CR]ReDesign : Kemix</description>
+    <platform>all</platform>
+  </extension>
 </addon>
 </addons>
