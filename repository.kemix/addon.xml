@@ -7,7 +7,7 @@
 	<extension point="xbmc.addon.repository" name="kemix Repo">
 		<checksum>https://raw.githubusercontent.com/mystikxkemix/kemix-add-on-repo/master/addons.xml.md5</checksum>
 		<info compressed="false">https://raw.githubusercontent.com/mystikxkemix/kemix-add-on-repo/master/addons.xml</info>
-		<datadir zip="true">https://raw.githubusercontent.com/mystikxkemix/kemix-add-on-repo/master</datadir>
+		<datadir zip="true">https://raw.githubusercontent.com/mystikxkemix/kemix-add-on-repo/master/zip/</datadir>
 	</extension>
 
 	<extension point="xbmc.addon.metadata">
@@ -16,5 +16,6 @@
 		<description lang="en">All Kemixs add-ons</description>
 		<disclaimer lang="en"></disclaimer>
 		<platform>all</platform>
+		<source>https://github.com/mystikxkemix/kemix-add-on-repo</source>
 	</extension>
 </addon>
