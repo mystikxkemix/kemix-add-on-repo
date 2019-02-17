@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+	id="skin.kemixOSMC"
+	version="1.1.3"
+	name="Kemix's OMSC"
+	provider-name="Kemix">
+	<requires>
+		<import addon="xbmc.gui" version="5.14.0"/>
+		<import addon="script.favourites" version="5.0.2"/>
+		<import addon="script.skinshortcuts" version="0.4.0"/>
+		<import addon="service.skin.widgets" version="0.0.27"/>
+		<import addon="script.tv.show.next.aired" version="6.0.13" />
+	</requires>
+	<extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1.00" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="16x9" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Look and feel of OSMC modified by Kemix</summary>
+		<disclaimer lang="en"/>
+		<description lang="en">Design: Simon Brunton[CR]ReDesign : Kemix[CR]Code: Hitcher</description>
+	</extension>
+</addon>

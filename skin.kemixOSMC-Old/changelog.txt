@@ -1,0 +1,52 @@
+1.1.2
+- Fix Today Display
+
+1.1.1
+- Add Banner view for TV Show - Next Aired
+- Fix Bug on view for TV Show - Next Aired
+
+1.1.0
+- Add Skin for TV Show - Next Aired
+- Fix BestViewEver episode display
+- Add Grey theme color
+- Add different font size
+
+1.0.10
+- Add a new Background color
+- Change the Video Player OSD
+- Add display movies' codecs on BestViewEver
+- Fix display on List view
+
+1.0.9
+- undo version 1.0.8
+
+1.0.8
+- cover test
+
+1.0.7
+- Fix BestViewEver Movies view
+- Fix BestViewEver TVshows view
+- Add BestViewEver Episodes view
+
+1.0.6
+- Correction Codecs pictures bug in List
+
+1.0.5
+- BestViewEver usable in movies
+- Try to change infos pictures size
+
+1.0.4
+- Correction bug Fanart BestViewEver view
+
+1.0.3
+- J'sais plus
+
+1.0.2
+- Delete useless option in skin settings
+- Add New View (BestViewEver)
+
+1.0.1
+- Modif du menu principal
+
+1.0.0
+- Copie du theme OSMC
