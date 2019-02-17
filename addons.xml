@@ -17,7 +17,6 @@
 		<description lang="en">All Kemixs add-ons</description>
 		<disclaimer lang="en"></disclaimer>
 		<platform>all</platform>
-		<source>https://github.com/mystikxkemix/kemix-add-on-repo</source>
 	</extension>
 </addon>
 
