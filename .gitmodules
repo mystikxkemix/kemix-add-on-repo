@@ -1,0 +1,3 @@
+[submodule "skin.kemixOSMC"]
+	path = skin.kemixOSMC
+	url = git@github.com:mystikxkemix/skin.osmc.git
